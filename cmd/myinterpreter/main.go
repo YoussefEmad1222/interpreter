@@ -25,6 +25,8 @@ func main() {
 		parser := NewParser(lexer.tokens)
 		parser.parse()
 		parser.printExpr()
+	} else if command == "run" {
+		Run(lexer)
 	} else {
 		_, _ = fmt.Fprintln(os.Stderr, "Invalid command")
 	}
@@ -38,9 +40,4 @@ func main() {
 		os.Exit(70)
 	}
 	os.Exit(0)
-	//lexer := NewLexer("78")
-	//lexer.tokenize()
-	//parser := NewParser(lexer.tokens)
-	//parser.parse()
-	//parser.printExpr()
 }

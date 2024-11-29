@@ -1,20 +1,14 @@
 package main
 
 type ErrorType string
-type operationType string
 type TokenType string
+
+var isRunning = false
 
 const (
 	SYNTAX_ERROR  ErrorType = "Syntax Error"
 	RUNTIME_ERROR ErrorType = "Runtime Error"
 	NONE          ErrorType = "None"
-)
-
-const (
-	NUMBER_OP  operationType = "NUMBER"
-	STRING_OP  operationType = "STRING"
-	LOGICAL_OP operationType = "LOGICAL"
-	NO_OP      operationType = "NO_OP"
 )
 
 var operand = map[TokenType]bool{
@@ -24,20 +18,6 @@ var operand = map[TokenType]bool{
 	FALSE:      true,
 	NIL:        true,
 	IDENTIFIER: true,
-}
-
-var operators = map[TokenType]bool{
-	PLUS:          true,
-	MINUS:         true,
-	STAR:          true,
-	SLASH:         true,
-	GREATER:       true,
-	GREATER_EQUAL: true,
-	LESS:          true,
-	LESS_EQUAL:    true,
-	EQUAL_EQUAL:   true,
-	BANG_EQUAL:    true,
-	LEFT_PAREN:    true,
 }
 
 const (
